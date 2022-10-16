@@ -108,3 +108,36 @@
     z-index: 10;
     overflow: hidden;
 }
+
+.container-portada-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.primary-button{
+    background-color: #fff;
+    color: #262626;
+}
+
+.secondary-button{
+    background-color:  rgba(109, 109, 110, 0.4);
+    color: #fff;
+}
+
+.action-button{
+    width: 30%;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+}
+
+.action-button:hover{
+    opacity: 0.6;
+    transition: 0.4s;
+}

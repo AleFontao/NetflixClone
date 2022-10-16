@@ -1,11 +1,38 @@
-
-.container img{
+img {
     position: relative;
-    width: 300px;
-    border-radius: 5px;;
+    border-radius: 5px;
+    width: 14.66666667%;
+    margin: 0 8px 0 7px;
 }
 
-.container img:hover{
-    transform: translateY(-10px);
-    transition: 1s;
+
+img:hover {
+    transform: scale(1.20);
+    transform-origin: center;
+    transition: all .3s ease;
+    z-index: 25;
+}
+
+@media  screen and (max-width: 1400px) {
+    img {
+        width: 14.66666667%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    img {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    img {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    img{
+        width: 33.3333333%;
+    }
 }

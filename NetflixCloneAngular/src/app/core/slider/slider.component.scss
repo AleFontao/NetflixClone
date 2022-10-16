@@ -1,17 +1,26 @@
+
 .container{
+    margin: 0px 0px 0px 60px;
+}
+
+.container-media{
     z-index: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
     overflow: hidden;
     height: 200px;
+
 }
 
+.slider{
+    display: inline-block;
+    white-space: nowrap;
+}
 h3{
     color: #fff;
-    padding: 15px 0px 10px 10px;
+    padding: 15px 0px 5px 30px;
 }
 
 .row-container{

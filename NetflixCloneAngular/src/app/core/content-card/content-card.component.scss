@@ -1,0 +1,12 @@
+.container{
+    width:20%;
+}
+.container img{
+    position: relative;
+    width: 300px;
+}
+
+.container img:hover{
+    transform: translateY(-10px);
+    transition: 1s;
+}

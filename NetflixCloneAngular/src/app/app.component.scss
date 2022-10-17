@@ -3,17 +3,12 @@
     top: 0;
     z-index: 5000;
     width: 100%;
+    transition: background-color 500ms ease-in-out;
 }
 
+.master-head-inverse{
+    background-color: #141414;
 
-body:not([data-scroll='0']) {
-    .master-head {
-        position: fixed;
-    top: 0;
-    z-index: 5000;
-    width: 100%;
-        background-color: #141414;
-    }
 }
 
 .nav {

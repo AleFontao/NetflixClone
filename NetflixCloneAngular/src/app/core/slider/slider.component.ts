@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { cards, ContentCard } from '../models/content-card';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ContentCard, Slider } from '../models/content-card';
 
 @Component({
   selector: 'app-slider',
@@ -7,42 +7,60 @@ import { cards, ContentCard } from '../models/content-card';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  cards!: ContentCard[];
-  sliderContent: ContentCard[] = cards;
-  index: number = 1;
-
-  slidesContainer!: HTMLElement | null;
+  
+  
+  sliderContent!: ContentCard[];
+  indexBorrado: number = 0;
+  index: number = 0;
+  maxIndex: number = 0;
+  @ViewChild('slidesContainer') slidesContainer!: any;
+  @Input()
+  slider!: Slider;
+  cards!: any;
   constructor() { }
 
   ngOnInit() {
-    this.cards = cards;
-    this.slidesContainer = document.getElementById("slides-container");
+    this.sliderContent = this.slider.slider;
+    this.cards = this.slider.slider;
   }
+
+
   right() {
     this.index++;
-    console.log(this.index + " " + this.cards.length % this.index);
-    if (this.cards.length % this.index != 0) {
-      this.resetIndex();
+    this.indexBorrado = 0;
+    if (this.maxIndex <= this.index) {
+      this.addContent();
     }
-
-    const slideWidth = this.slidesContainer!.clientWidth;
-    this.slidesContainer!.scrollLeft += slideWidth;
+    const slideWidth = this.slidesContainer.nativeElement.clientWidth;
+    
+    this.slidesContainer!.nativeElement.scrollLeft += slideWidth;
   }
 
   left() {
-    if (this.index > 1) {
-      this.index--;
+    this.index--;
+    this.indexBorrado++;
+    if (this.indexBorrado == 2) {
+      this.indexBorrado = 0;
+      this.removeContent();
+
     }
-    console.log(this.index + " " + this.cards.length % this.index);
-    const slideWidth = this.slidesContainer!.clientWidth;
-    this.slidesContainer!.scrollLeft -= slideWidth;
+    const slideWidth = this.slidesContainer.nativeElement.clientWidth;
+    this.slidesContainer!.nativeElement.scrollLeft -= slideWidth;
   }
 
-  resetIndex() {
+  addContent() {
+    this.maxIndex++;
+    this.cards = this.cards.concat(this.sliderContent)
+  }
+
+  removeContent() {
+    this.cards.splice(this.cards.length - this.sliderContent.length, this.cards.length)
+  }
+
+  resetIndexStart() {
     this.index = 1;
-    this.sliderContent.forEach(element => this.cards.push(element))
+    var newArray = this.sliderContent.concat(this.cards);
+    this.cards = newArray;
   }
-
-
 
 }

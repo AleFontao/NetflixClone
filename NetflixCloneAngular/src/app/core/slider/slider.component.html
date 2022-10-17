@@ -1,5 +1,5 @@
 <div class="slider-wrapper">
-  <h3>Series de EE. UU.</h3>
+  <h3>{{slider.title}}</h3>
   <div class="container-media">
     <div class="row-container-left">
       <button (click)="left()" class="row" id="row-left">
@@ -11,7 +11,7 @@
         <mat-icon class="icon-display">keyboard_arrow_right</mat-icon>
       </button>
     </div>
-    <div class="slides-container" id="slides-container">
+    <div #slidesContainer class="slides-container" id="slides-container">
       <app-content-card *ngFor="let card of cards" [img]=card.img>      
       </app-content-card>    
     </div>

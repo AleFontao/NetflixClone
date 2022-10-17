@@ -85,6 +85,5 @@
 </section>
 
 <section id="sliders">
-  <app-slider></app-slider>
-  <app-slider></app-slider>
+  <app-slider *ngFor="let element of sliders" [slider] = element>s</app-slider>
 </section>

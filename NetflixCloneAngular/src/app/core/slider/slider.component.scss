@@ -20,9 +20,13 @@
     align-items: center;
     margin: 0;
     padding: 0;
-    overflow: scroll;
+    overflow-x: scroll;
     scroll-behavior: smooth;
     white-space: nowrap;
+    overflow-y: visible;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .slides-container {

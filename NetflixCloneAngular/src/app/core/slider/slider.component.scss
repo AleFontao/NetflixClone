@@ -13,7 +13,6 @@
 
 }
 
-
 .slides-container {
     
     display: inline-block;
@@ -79,4 +78,11 @@ h3 {
     color: #fff;
     padding: 15px;
     transition: 0.5s;
+}
+
+@media only screen and (max-width: 1100px) {
+    .slider-wrapper{
+        margin: 0px 0px 0px 15px;
+        height: 170px ;
+    }
 }

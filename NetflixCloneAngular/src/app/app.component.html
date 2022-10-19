@@ -2,12 +2,12 @@
   <div class="header-wrap">
     <div class="header-warp-inner">
       <div class="left-part">
-        <div>
+        <div>      
           <img class="logo"
             src="https://images.ctfassets.net/y2ske730sjqp/821Wg4N9hJD8vs5FBcCGg/9eaf66123397cc61be14e40174123c40/Vector__3_.svg?w=460">
         </div>
-        <nav class="nav-menu">
-          <ul class="nav-menu-options">
+        <nav class="nav-menu">        
+          <ul class="nav-menu-options" *ngIf="!flagScreen">
             <li>
               <a href="">
                 Inicio
@@ -44,6 +44,7 @@
       <div class="right-part">
         <nav class="nav-menu">
           <ul class="nav-menu-options">
+            
             <li>
               <a href="">
                 <mat-icon>search</mat-icon>
@@ -54,6 +55,29 @@
                 <mat-icon>notifications</mat-icon>
               </a>
             </li>
+            <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="flagScreen" class="menu-responsive-button">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <span>Inicio</span>
+              </button>
+              <button mat-menu-item disabled>
+                <span>Series</span>
+              </button>
+              <button mat-menu-item>
+                <span>Peliculas</span>
+              </button>
+              <button mat-menu-item>
+                <span>Novedades populares</span>
+              </button>
+              <button mat-menu-item>
+                <span>Mi lista</span>
+              </button>
+              <button mat-menu-item>
+                <span>Explorar por idiomas</span>
+              </button>
+            </mat-menu>
             <li>
               <img
                 src="https://occ-0-3791-114.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABVbYEW3Bkl6g7KkyJmusw_jPAXtpY6KusGOVNs-4v4vTLf6h4kETNq3ApIhFAHL2Dbe1z1T-j8gaEIw5TElx87IQfk791_g.png?r=5eb">
@@ -65,9 +89,7 @@
   </div>
 </header>
 
-<section id="trailer">
-  <img class="img-portada"
-    [src]=portada.imagen>
+<section id="trailer" *ngIf="!flagScreen">
   <div id="gradient"></div>
 
   <div class="container-trailer-content">
@@ -85,5 +107,6 @@
 </section>
 
 <section id="sliders">
-  <app-slider *ngFor="let element of sliders" [slider] = element>s</app-slider>
+  <app-slider *ngFor="let element of sliders" [slider] = element></app-slider>
+  <app-slider *ngFor="let element of sliders" [slider] = element></app-slider>
 </section>

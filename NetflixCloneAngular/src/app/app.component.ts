@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 'https://occ-0-3791-114.1.nflxso.net/dnm/api/v6/tx1O544a9T7n8Z_G12qaboulQQE/AAAABX14LPFNJKl5iqHVD8YJJI-tt1UWRH_h2FOZ-ZXcmTV7Fm1feGyQUJGftu9W6ZDHxzSZe9SUAYUTS1WYgGu2srse-LG3XKKvwcBXY__X2AAaUgHT0VSGhPqfIkSySiq8Bhxl0242EiU7vO-QilGFeFauX7bzUaGlD74zEz7UbKeMGHes_xgK.webp?r=522'];
   portadaDescription: string[] = ['','Una familia con un atroz secreto comienza una nueva vida en Madrid, pero las nuevas relaciones complican sus planes, y el pasado no los deja en paz.']
   portada!: Portada;
+  flagScreen!:boolean;
   sliders: [Slider,Slider,Slider] = [slider1, slider2, slider3];
 
   ngOnInit(): void {
@@ -25,7 +26,8 @@ export class AppComponent implements OnInit {
       titulo: this.portadaTitulos[i],
       description: this.portadaDescription[i]
     }
-   
+
+    this.onResize();
   }
   
   randomIntFromInterval(min:number, max:number) { // min and max included 
@@ -40,6 +42,11 @@ export class AppComponent implements OnInit {
     } else {
       element.classList.remove('master-head-inverse');
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.flagScreen = (window.innerWidth <= 1100) ? true : false;
   }
 }
 

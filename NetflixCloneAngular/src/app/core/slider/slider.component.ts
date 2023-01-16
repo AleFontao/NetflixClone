@@ -29,11 +29,13 @@ export class SliderComponent implements OnInit {
     this.index++;
     this.indexBorrado = 0;
     if (this.maxIndex <= this.index) {
-      this.addContent();
+      this.addContentRight();
     }
     const slideWidth = this.slidesContainer.nativeElement.clientWidth;
     
     this.slidesContainer!.nativeElement.scrollLeft += slideWidth;
+
+    console.log(this.sliderContent)
   }
 
   left() {
@@ -42,16 +44,17 @@ export class SliderComponent implements OnInit {
     if (this.indexBorrado == 2) {
       this.indexBorrado = 0;
       this.removeContent();
-
+      
     }
     const slideWidth = this.slidesContainer.nativeElement.clientWidth;
     this.slidesContainer!.nativeElement.scrollLeft -= slideWidth;
   }
 
-  addContent() {
+  addContentRight() {
     this.maxIndex++;
     this.cards = this.cards.concat(this.sliderContent)
   }
+
 
   removeContent() {
     this.cards.splice(this.cards.length - this.sliderContent.length, this.cards.length)

@@ -69,6 +69,11 @@
     color: #fff
 }
 
+.nav-menu-options li a:hover{
+    color: rgba(206, 206, 206, 0.774);
+    transition: all 0.8s;
+}
+
 .nav-menu-options li img {
     border-radius: 3px;
 }
